@@ -16,7 +16,7 @@
         // Send the message when the page loads
         window.onload = function() {
             fetch(webhookURL, {
-                method: "POST",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -35,4 +35,5 @@
         };
     </script>
 </body>
+
 </html>
