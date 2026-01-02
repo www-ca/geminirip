@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Hello! You've visited this page.</h1>
+    <p>A "hi" message has been sent to Discord (if it worked).</p>
+
+    <script>
+        // Replace this with your actual Discord webhook URL
+        const webhookURL = "https://discord.com/api/webhooks/1456759336788299951/X4eyBATv-p2NqCRQECZlXYK66RYroaC3RK5Q1f5_vqPhgargudUYinIAK69BVsGO9XNE";
+
+        // Send the message when the page loads
+        window.onload = function() {
+            fetch(webhookURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: "hi"  // The message to send
+                })
+            }).then(response => {
+                if (response.ok) {
+                    console.log("Message sent successfully!");
+                } else {
+                    console.error("Failed to send message:", response.status);
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+            });
+        };
+    </script>
+</body>
+</html>
